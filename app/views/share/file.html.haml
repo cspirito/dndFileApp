@@ -40,6 +40,7 @@
     }    
 
     function handleFiles(files) {
+      $("#loading").html("Uploading " + files.length + " files now.  Hang on...");
       $("#loading").css("visibility", "visible");
       for (var i = 0; i < files.length; i++) {
         var file = files[i];
@@ -80,6 +81,7 @@
         setTimeout(function() {
           $( "#schoolUpdateMessageSuccess" ).html("");
             $("#loading").css("visibility", "hidden");
+            $("#loading").html("");
           }, 1000 );
       }
       xhr.send(file);
