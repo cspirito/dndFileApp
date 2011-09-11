@@ -1,0 +1,29 @@
+#instructions {
+	margin-bottom: 20px;
+}
+
+#droparea {
+}
+
+.slide {
+	width: 480px;
+	height: 360px;	
+	border: 1px solid #A6C9E2;
+}
+
+#dropbox {
+	width: 53px;
+	height: 40px;
+	border: 1px solid #A6C9E2;
+}
+
+#filelinks {
+	margin-top: 20px;
+	margin-left: 5px;
+}
+
+#urls {
+	margin-top: 10px;
+	margin-left: 5px;
+	font-weight: bold;
+}

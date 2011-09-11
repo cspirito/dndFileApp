@@ -1,0 +1,89 @@
+:javascript
+  $(function() {
+    var dropbox;
+  
+    dropbox = document.getElementById("dropbox");
+    dropbox.addEventListener("dragenter", dragenter, false);
+    dropbox.addEventListener("dragexit", dragexit, false);
+    dropbox.addEventListener("dragover", dragover, false);
+    dropbox.addEventListener("drop", drop, false);
+  
+    function dragenter(e) {
+      e.stopPropagation();
+      e.preventDefault();
+      $("#dropbox").attr("src", "/images/dropzone_selected.png");
+      console.log('de');
+    }
+
+    function dragexit(e) {
+      e.stopPropagation();
+      e.preventDefault();
+      $("#dropbox").attr("src", "/images/dropzone.png");
+      console.log('exit');
+    }
+  
+    function dragover(e) {
+      e.stopPropagation();
+      e.preventDefault();
+      console.log('do');
+    }
+  
+    function drop(e) {
+      console.log('drop');
+      e.stopPropagation();
+      e.preventDefault();
+
+      var dt = e.dataTransfer;
+      var files = dt.files; 
+
+      handleFiles(files);
+    }    
+
+    function handleFiles(files) {
+      for (var i = 0; i < files.length; i++) {
+        var file = files[i];
+        var imageType = /image.*/;
+
+        if (!file.type.match(imageType)) {
+          continue;
+        }
+
+        $("#dropbox").attr("src", "/images/dropzone.png");
+        uploadFile(file);
+      }
+    }
+
+    function uploadFile(file) {
+      var xhr = new XMLHttpRequest();
+
+      xhr.open("POST", "/save_file", true);
+      xhr.setRequestHeader("Content-Type", file.type);
+      xhr.setRequestHeader("X-File-Name", file.fileName);
+
+      var qp = new Object();
+
+      qp.file_size = file.size;
+      qp.file_mime = file.type;
+      qp.file_name = file.fileName;
+      xhr.setRequestHeader("X-Query-Params", JSON.stringify(qp));
+
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4) {
+          if (xhr.status == 200) {
+            retData = jQuery.parseJSON(xhr.responseText);
+            if (retData.status == "ok")
+              var link = retData.filename + " => " + retData.msg + "<br/>";
+              $("#filelinks").before(link);
+          }
+        }
+      }
+      xhr.send(file);
+    }
+  });
+#instructions
+  Drop your file or files into the d/l box
+#droparea
+  %img(src="/images/dropzone.png" width="71" height="53" class="slide" id="dropbox")
+#urls
+  URLs
+#filelinks
