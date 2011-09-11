@@ -17,13 +17,17 @@
 	border: 1px solid #A6C9E2;
 }
 
+#loading {
+	margin: 10px 0px 10px 5px;
+	visibility: hidden;
+	height: 20px;
+}
+
 #filelinks {
-	margin-top: 20px;
-	margin-left: 5px;
+	margin: 20px 0px 0px 10px;
 }
 
 #urls {
-	margin-top: 10px;
-	margin-left: 5px;
+	margin: 10px 0px 0px 5px;
 	font-weight: bold;
 }

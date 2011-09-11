@@ -40,6 +40,7 @@
     }    
 
     function handleFiles(files) {
+      $("#loading").css("visibility", "visible");
       for (var i = 0; i < files.length; i++) {
         var file = files[i];
         var imageType = /image.*/;
@@ -73,9 +74,13 @@
             retData = jQuery.parseJSON(xhr.responseText);
             if (retData.status == "ok")
               var link = retData.filename + " => " + retData.msg + "<br/>";
-              $("#filelinks").before(link);
+              $("#placeholder").before(link);
           }
         }
+        setTimeout(function() {
+          $( "#schoolUpdateMessageSuccess" ).html("");
+            $("#loading").css("visibility", "hidden");
+          }, 1000 );
       }
       xhr.send(file);
     }
@@ -84,6 +89,9 @@
   Drop your file or files into the d/l box
 #droparea
   %img(src="/images/dropzone.png" width="71" height="53" class="slide" id="dropbox")
+#loading
+  Uploading files now
 #urls
   URLs
 #filelinks
+  #placeholder
