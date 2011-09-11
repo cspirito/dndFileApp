@@ -47,11 +47,6 @@
       $("#loading").css("visibility", "visible");
       for (var i = 0; i < files.length; i++) {
         var file = files[i];
-        var imageType = /image.*/;
-
-        if (!file.type.match(imageType)) {
-          continue;
-        }
 
         $("#dropbox").attr("src", "/images/dropzone.png");
         uploadFile(file);
