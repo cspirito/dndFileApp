@@ -3,10 +3,14 @@
   %head
     %title Quick Fileshare App
     %link{:rel => "stylesheet", :href => "/stylesheets/fileshare.css", :type => "text/css"}
+    // If you are going to use Google to load JQuery - 
+    // which made sense when this was written - but with 
+    // the new Rails 3.x - probably not - just add in your 
+    // Google API Key below
     - if Rails.env.development?
-      %script{:type => "text/javascript", :src => "https://www.google.com/jsapi?key=ABQIAAAAG0AAq1dYy8I74Cix8G2hbRTthU7LSeUmKHSpXoygVZwHEItDDhQV1BpJfAcUcr_m-uP62nRGtfDRUA"}
+      %script{:type => "text/javascript", :src => "https://www.google.com/jsapi?key=<YOUR_GOOGLE_DEVELOPMENT_API_KEY>"}
     - else
-      %script{:type => "text/javascript", :src => "https://www.google.com/jsapi?key=ABQIAAAAvEkiLDN7xmOCGM9adRL96hTlBEzXBcIK3zrQ36RoHQeEf5mAmBTyGSmBccDGWSMS-_nKM1s5gRlN9Q"}
+      %script{:type => "text/javascript", :src => "https://www.google.com/jsapi?key=<YOUR_GOOGLE_PRODUCTION_API_KEY>"}
     :javascript
       google.load("jquery", "1.6.2");
     :javascript

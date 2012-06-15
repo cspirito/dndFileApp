@@ -1,8 +1,8 @@
 development:
-  access_key_id: AKIAIFIBH62P2Q55PUNA
-  secret_access_key: dcyUive+zOOu3lDWLU1wTEMgcdqfKn/TBQdW86o/
-  bucket: my_fileshare
+  access_key_id: <YOUR_ACCESS_KEY_ID_HERE>
+  secret_access_key: <YOUR_SECRET_ACCESS_KEY_ID_HERE>
+  bucket: <YOUR_BUCKET_NAME_HERE>
 production:
-  access_key_id: AKIAIFIBH62P2Q55PUNA
-  secret_access_key: dcyUive+zOOu3lDWLU1wTEMgcdqfKn/TBQdW86o/
-  bucket: my_fileshare
+  access_key_id: <YOUR_ACCESS_KEY_ID_HERE>
+  secret_access_key: <YOUR_SECRET_ACCESS_KEY_ID_HERE>
+  bucket: <YOUR_BUCKET_NAME_HERE>
