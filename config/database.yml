@@ -3,22 +3,22 @@ development:
   encoding: unicode
   database: fileshare_development
   pool: 5
-  username: postgres
-  password: letmein00
+  username: <username>
+  password: <password>
 
 test:
   adapter: postgresql
   encoding: unicode
   database: fileshare_test
   pool: 5
-  username: postgres
-  password: letmein00
+  username: <username>
+  password: <password>
 
 production:
   adapter: postgresql
   encoding: unicode
   database: fileshare_production
   pool: 5
-  username: postgres
-  password: letmein00
+  username: <username>
+  password: <password>
 
